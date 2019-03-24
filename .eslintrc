@@ -1,0 +1,183 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "CONFIG": true,
+  },
+  "rules": {
+    // Airbnb overwrites
+    "import/no-extraneous-dependencies": [
+      "off"
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "linebreak-style": "off",
+    "react/jsx-indent": [
+      2
+    ],
+    "react/jsx-indent-props": [
+      2
+    ],
+    "react/forbid-prop-types": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/no-array-index-key": "off",
+    "class-methods-use-this": "off",
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
+      }
+    ],
+    "eol-last": "warn",
+    "no-alert": "warn",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true
+      }
+    ],
+    "padded-blocks": "off",
+    "no-prototype-builtins": "off",
+    "no-restricted-syntax": "off",
+    "max-len": [
+      "warn",
+      120,
+      {
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "one-var": [
+      "error",
+      {
+        "var": "never",
+        "let": "never",
+        "const": "never"
+      }
+    ],
+    "one-var-declaration-per-line": "off",
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "no-empty": "error",
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+    "no-unused-vars": "warn",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 2
+      }
+    ],
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          [
+            "+",
+            "-",
+            "*",
+            "/",
+            "%",
+            "**"
+          ],
+          [
+            "&",
+            "|",
+            "^",
+            "~",
+            "<<",
+            ">>",
+            ">>>"
+          ],
+          [
+            "==",
+            "!=",
+            "===",
+            "!==",
+            ">",
+            ">=",
+            "<",
+            "<="
+          ],
+          [
+            "&&",
+            "||"
+          ],
+          [
+            "in",
+            "instanceof"
+          ]
+        ],
+        "allowSamePrecedence": true
+      }
+    ],
+    "no-multi-spaces": "warn",
+    "quotes": "warn",
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    "no-trailing-spaces": "warn",
+    "curly": [
+      "error",
+      "all"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "keyword-spacing": "warn",
+    "prefer-const": "warn",
+    "comma-spacing": "warn",
+    "import/no-webpack-loader-syntax": "off",
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": [
+          "Label"
+        ],
+        "required": {
+          "some": [
+            "nesting",
+            "id"
+          ]
+        },
+        "allowChildren": false
+      }
+    ]
+  }
+}
