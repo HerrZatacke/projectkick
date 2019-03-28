@@ -16,6 +16,7 @@ module.exports = {
       warnings: false,
       errors: true,
     },
+    contentBase: path.join(process.cwd(), 'src', 'assets'),
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
