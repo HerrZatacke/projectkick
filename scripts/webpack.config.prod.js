@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pxtorem = require('postcss-pxtorem');
 const autoprefixer = require('autoprefixer');
 
@@ -36,7 +37,7 @@ module.exports = {
         test: /\.(scss|css)$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -94,6 +95,8 @@ module.exports = {
       filename: 'index.html',
       chunks: ['main'],
     }),
-    // new webpack.NamedModulesPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
   ],
 };
