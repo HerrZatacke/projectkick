@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const pxtorem = require('postcss-pxtorem');
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageJson = require('../package.json');
 
@@ -56,6 +58,30 @@ module.exports = {
             options: {
               minimize: false,
               sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                pxtorem({
+                  rootValue: 16,
+                  unitPrecision: 3,
+                  propList: ['*', '!border*'],
+                  selectorBlackList: [],
+                  replace: true,
+                  mediaQuery: true,
+                  minPixelValue: 2,
+                }),
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 10',
+                  ],
+                }),
+              ],
             },
           },
           {
