@@ -6,7 +6,7 @@
     "jest": true
   },
   "globals": {
-    "CONFIG": true,
+    "CONFIG": true
   },
   "rules": {
     // Airbnb overwrites
@@ -59,7 +59,7 @@
     "no-restricted-syntax": "off",
     "max-len": [
       "warn",
-      120,
+      160,
       {
         "ignoreComments": true,
         "ignoreUrls": true,
@@ -82,6 +82,13 @@
       "last"
     ],
     "no-empty": "error",
+    "id-blacklist": [
+      "e",
+      "temp",
+      "_temp",
+      "foo",
+      "_foo"
+    ],
     "brace-style": [
       "error",
       "1tbs"
@@ -95,49 +102,16 @@
         "maxEOF": 2
       }
     ],
-    "no-mixed-operators": [
-      "error",
-      {
-        "groups": [
-          [
-            "+",
-            "-",
-            "*",
-            "/",
-            "%",
-            "**"
-          ],
-          [
-            "&",
-            "|",
-            "^",
-            "~",
-            "<<",
-            ">>",
-            ">>>"
-          ],
-          [
-            "==",
-            "!=",
-            "===",
-            "!==",
-            ">",
-            ">=",
-            "<",
-            "<="
-          ],
-          [
-            "&&",
-            "||"
-          ],
-          [
-            "in",
-            "instanceof"
-          ]
-        ],
-        "allowSamePrecedence": true
-      }
-    ],
+    "no-mixed-operators": ["error", {
+      "groups": [
+        ["+", "-", "*", "/", "%", "**"],
+        ["&", "|", "^", "~", "<<", ">>", ">>>"],
+        ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+        ["&&", "||"],
+        ["in", "instanceof"]
+      ],
+      "allowSamePrecedence": true
+    }],
     "no-multi-spaces": "warn",
     "quotes": "warn",
     "operator-linebreak": [
@@ -164,20 +138,74 @@
     "prefer-const": "warn",
     "comma-spacing": "warn",
     "import/no-webpack-loader-syntax": "off",
-    "jsx-a11y/label-has-for": [
-      2,
-      {
-        "components": [
-          "Label"
-        ],
-        "required": {
-          "some": [
-            "nesting",
-            "id"
-          ]
-        },
-        "allowChildren": false
-      }
+    "no-implicit-globals": "error",
+    "no-undef": "error",
+    "no-restricted-globals": [
+      "error",
+      "addEventListener",
+      "blur",
+      "close",
+      "closed",
+      "clearInterval",
+      "clearTimeout",
+      "confirm",
+      "defaultStatus",
+      "event",
+      "external",
+      "defaultstatus",
+      "find",
+      "focus",
+      "frameElement",
+      "frames",
+      "getComputedStyle",
+      "history",
+      "innerHeight",
+      "innerWidth",
+      "length",
+      "location",
+      "locationbar",
+      "menubar",
+      "moveBy",
+      "moveTo",
+      "name",
+      "onblur",
+      "onerror",
+      "onfocus",
+      "onload",
+      "onresize",
+      "onunload",
+      "open",
+      "opener",
+      "opera",
+      "outerHeight",
+      "outerWidth",
+      "pageXOffset",
+      "pageYOffset",
+      "parent",
+      "print",
+      "removeEventListener",
+      "resizeBy",
+      "resizeTo",
+      "requestAnimationFrame",
+      "screen",
+      "screenLeft",
+      "screenTop",
+      "screenX",
+      "screenY",
+      "scroll",
+      "scrollbars",
+      "scrollBy",
+      "scrollTo",
+      "scrollX",
+      "scrollY",
+      "self",
+      "setInterval",
+      "setTimeout",
+      "status",
+      "statusbar",
+      "stop",
+      "toolbar",
+      "top"
     ]
   }
 }
