@@ -34,6 +34,7 @@
         ]
       }
     ],
+    "jsx-a11y/label-has-for": "off",
     "react/no-array-index-key": "off",
     "class-methods-use-this": "off",
     "no-console": [
@@ -83,6 +84,7 @@
     ],
     "no-empty": "error",
     "id-blacklist": [
+      "error",
       "e",
       "temp",
       "_temp",
