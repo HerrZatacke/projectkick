@@ -83,6 +83,7 @@
     ],
     "no-empty": "error",
     "id-blacklist": [
+      "error",
       "e",
       "temp",
       "_temp",
