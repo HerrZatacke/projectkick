@@ -9,6 +9,7 @@ const initApp = () => {
   if (!appRoot) {
     return;
   }
+
   render(<Provider store={getStore()}><App /></Provider>, appRoot);
 };
 

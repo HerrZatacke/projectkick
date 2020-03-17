@@ -56,7 +56,6 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              minimize: false,
               sourceMap: true,
             },
           },
@@ -73,22 +72,17 @@ module.exports = {
                   mediaQuery: true,
                   minPixelValue: 2,
                 }),
-                autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'Firefox ESR',
-                    'not ie < 10',
-                  ],
-                }),
+                autoprefixer(),
               ],
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              includePaths: [path.join(process.cwd(), 'src')],
+              sassOptions: {
+                sourceMap: true,
+                includePaths: [path.join(process.cwd(), 'src')],
+              },
             },
           },
           {

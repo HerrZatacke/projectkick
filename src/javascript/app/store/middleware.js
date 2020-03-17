@@ -1,4 +1,4 @@
-const middleware = (/* store */) => next => (action) => {
+const middleware = (/* store */) => (next) => (action) => {
 
   // const state = store.getState();
   // console.log(state);

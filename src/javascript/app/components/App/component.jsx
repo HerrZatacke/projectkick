@@ -1,12 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const App = props => (
-  <Fragment>
-    <button onClick={props.toggleExample}>
+const App = (props) => (
+  <>
+    <button
+      type="button"
+      onClick={props.toggleExample}
+    >
       { props.example ? 'true' : 'false' }
     </button>
-  </Fragment>
+  </>
 );
 
 App.propTypes = {

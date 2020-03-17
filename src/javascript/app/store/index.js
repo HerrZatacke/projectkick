@@ -9,7 +9,7 @@ const enhancers = [
   applyMiddleware(middleware),
 ];
 
-const getStore = config => (
+const getStore = (config) => (
   createStore(reducers, config, composeEnhancers(...enhancers))
 );
 
