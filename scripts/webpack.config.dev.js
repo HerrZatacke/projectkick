@@ -13,6 +13,9 @@ module.exports = {
     inline: true,
     stats: {
       colors: true,
+      assets: false,
+      entrypoints: false,
+      modules: false,
     },
     overlay: {
       warnings: false,
@@ -20,6 +23,7 @@ module.exports = {
     },
     contentBase: path.join(process.cwd(), 'src', 'assets'),
     port: 3000,
+    watchContentBase: true,
     before: setupServer,
   },
   resolve: {
