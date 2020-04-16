@@ -4,12 +4,12 @@ const pxtorem = require('postcss-pxtorem');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageJson = require('../package.json');
+const setupServer = require('./setupServer');
 
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   devServer: {
-    // hot: true,
     inline: true,
     stats: {
       colors: true,
@@ -19,6 +19,8 @@ module.exports = {
       errors: true,
     },
     contentBase: path.join(process.cwd(), 'src', 'assets'),
+    port: 3000,
+    before: setupServer,
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
