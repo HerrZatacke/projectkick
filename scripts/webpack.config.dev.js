@@ -3,8 +3,9 @@ const webpack = require('webpack');
 const pxtorem = require('postcss-pxtorem');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const packageJson = require('../package.json');
+const { projectConfig } = require('../package.json');
 const setupServer = require('./setupServer');
+const jsonScss = require('./jsonScss');
 
 module.exports = {
   mode: 'development',
@@ -92,7 +93,15 @@ module.exports = {
             },
           },
           {
-            loader: './scripts/sass-import-loader',
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                jsonScss({
+                  config: projectConfig,
+                }),
+                path.join(process.cwd(), 'src', 'scss', 'auto-imports', '**', '*.scss'),
+              ],
+            },
           },
         ],
       },
@@ -113,7 +122,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      CONFIG: JSON.stringify(packageJson.projectConfig),
+      CONFIG: JSON.stringify(projectConfig),
     }),
   ],
 };

@@ -72,7 +72,13 @@ module.exports = {
             },
           },
           {
-            loader: './scripts/sass-import-loader',
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.join(process.cwd(), '.tmp', '**', '*.scss'),
+                path.join(process.cwd(), 'src', 'scss', 'auto-imports', '**', '*.scss'),
+              ],
+            },
           },
         ],
       },

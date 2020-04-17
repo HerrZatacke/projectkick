@@ -1,9 +1,10 @@
 @import '../../node_modules/reset-css/sass/reset';
 
 body {
+  @include fontFamily;
+
   background: $color-white;
   color: $color-black;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 
   &:before {
     content: $project-name;
