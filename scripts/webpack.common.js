@@ -39,6 +39,10 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: true,
+              reload: 'all', // Fallback
+            },
           },
           {
             loader: 'css-loader',
@@ -100,6 +104,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new webpack.DefinePlugin({
       CONFIG: JSON.stringify(projectConfig),
