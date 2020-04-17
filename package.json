@@ -4,6 +4,7 @@
   "description": "projectkick",
   "scripts": {
     "start": "webpack-dev-server --config ./scripts/webpack.dev.js",
+    "host": "npm run build && node ./scripts/host.js",
     "build": "npm run build:clean && npm run build:webpack",
     "build:clean": "rimraf dist && rimraf build",
     "build:webpack": "webpack --config ./scripts/webpack.prod.js"
