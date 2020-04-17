@@ -6,6 +6,9 @@
 * React/Redux
 * SCSS/PostCss
 
+All sccs files in [`/src/scss/auto-imports`](/src/scss/auto-imports) are automatically prefixed to each `.scss` required by Webpack via [sass-resources-loader](https://www.npmjs.com/package/sass-resources-loader)  
+That's why it *should not* create output of it's own ([see docs](https://www.npmjs.com/package/sass-resources-loader#tips)) 
+
 ## Config
 All properties of the field `projectConfig` in the `package.json` will be provided to your 
 * Global js variable `CONFIG`
