@@ -9,6 +9,7 @@ module.exports = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     inline: true,
+    hot: true,
     stats: {
       colors: true,
       assets: false,
@@ -23,11 +24,6 @@ module.exports = merge(common, {
     port: 3000,
     watchContentBase: true,
     before: setupServer,
-  },
-  entry: {
-    main: [
-      'webpack-dev-server/client?http://localhost:3000/',
-    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
