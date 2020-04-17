@@ -8,8 +8,6 @@ const { projectConfig } = require('../package.json');
 const jsonScss = require('./jsonScss');
 
 module.exports = {
-  mode: 'production',
-  devtool: false,
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
