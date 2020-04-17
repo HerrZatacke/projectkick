@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const setupServer = require('./setupServer');
-const common = require('./webpack.config.common.js');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',

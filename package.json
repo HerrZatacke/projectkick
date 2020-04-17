@@ -3,10 +3,10 @@
   "version": "0.0.2",
   "description": "projectkick",
   "scripts": {
-    "start": "webpack-dev-server --config ./scripts/webpack.config.dev.js",
+    "start": "webpack-dev-server --config ./scripts/webpack.dev.js",
     "build": "npm run build:clean && npm run build:webpack",
     "build:clean": "rimraf dist && rimraf build",
-    "build:webpack": "webpack --config ./scripts/webpack.config.prod.js"
+    "build:webpack": "webpack --config ./scripts/webpack.prod.js"
   },
   "author": "Herr Zatacke",
   "private": true,
