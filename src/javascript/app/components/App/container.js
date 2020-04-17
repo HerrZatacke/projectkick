@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
   example: state.example,
+  message: state.message,
 });
 
 const mapDispatchToProps = (dispatch) => ({

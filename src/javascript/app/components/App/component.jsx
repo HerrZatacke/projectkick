@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const App = (props) => (
   <>
+    <h2>{ props.message }</h2>
     <button
       type="button"
       onClick={props.toggleExample}
@@ -14,6 +15,7 @@ const App = (props) => (
 
 App.propTypes = {
   example: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
   toggleExample: PropTypes.func.isRequired,
 };
 

@@ -1,14 +1,26 @@
-const middleware = (/* store */) => (next) => (action) => {
+const middleware = (store) => {
 
-  // const state = store.getState();
-  // console.log(state);
+  fetch('/api')
+    .then((res) => res.json())
+    .catch((error) => (
+      error
+    ))
+    .then(({ message }) => {
+      store.dispatch({
+        type: 'SET_MESSAGE',
+        payload: message,
+      });
+    });
 
-  switch (action.type) {
-    default:
-      break;
-  }
+  return (next) => (action) => {
 
-  return next(action);
+    switch (action.type) {
+      default:
+        break;
+    }
+
+    return next(action);
+  };
 };
 
 export default middleware;
