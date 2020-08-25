@@ -12,11 +12,7 @@
   "author": "Herr Zatacke",
   "private": true,
   "projectConfig": {
-    "projectName": "projectkick",
-    "color": {
-      "black": "rgba(4, 0, 0, 1)",
-      "white": "#ddeeff"
-    }
+    "projectName": "projectkick"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

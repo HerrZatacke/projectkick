@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pxtorem = require('postcss-pxtorem');
 const autoprefixer = require('autoprefixer');
 const { projectConfig } = require('../package.json');
-const jsonScss = require('./jsonScss');
 
 module.exports = {
   resolve: {
@@ -80,9 +79,6 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               resources: [
-                jsonScss({
-                  config: projectConfig,
-                }),
                 path.join(process.cwd(), 'src', 'scss', 'auto-imports', '**', '*.scss'),
               ],
             },
