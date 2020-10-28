@@ -10,8 +10,7 @@ All sccs files in [`/src/scss/auto-imports`](/src/scss/auto-imports) are automat
 That's why it *should not* create output of it's own ([see docs](https://www.npmjs.com/package/sass-resources-loader#tips)) 
 
 ## Config
-All properties of the field `projectConfig` in the `package.json` will be provided to your 
-* Global js variable `CONFIG`
+All properties of the field `projectConfig` in the `package.json` will be provided to a global js variable `CONFIG`
 
 ## Getting started
 have a look at [`/src/javascript/index.js`](/src/javascript/index.js), [`/src/scss/index.scss`](/src/scss/index.scss) and [`/src/assets/index.html`](/src/assets/index.html)
