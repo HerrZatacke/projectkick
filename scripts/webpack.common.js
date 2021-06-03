@@ -1,12 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const pxtorem = require('postcss-pxtorem');
-const autoprefixer = require('autoprefixer');
 const { projectConfig } = require('../package.json');
 
-module.exports = {
+module.exports = () => ({
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
@@ -38,32 +36,37 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: true,
-              reload: 'all', // Fallback
-            },
           },
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
+              importLoaders: 1,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
-                pxtorem({
-                  rootValue: 16,
-                  unitPrecision: 3,
-                  propList: ['*', '!border*'],
-                  selectorBlackList: [],
-                  replace: true,
-                  mediaQuery: true,
-                  minPixelValue: 2,
-                }),
-                autoprefixer(),
-              ],
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {},
+                  ],
+                  [
+                    'postcss-pxtorem',
+                    {
+                      rootValue: 16,
+                      unitPrecision: 3,
+                      propList: ['*', '!border*'],
+                      selectorBlackList: [],
+                      replace: true,
+                      mediaQuery: true,
+                      minPixelValue: 2,
+                    },
+                  ],
+                ],
+              },
             },
           },
           {
@@ -87,9 +90,20 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      automaticNameDelimiter: '/',
+      cacheGroups: {
+        v: {
+          test: /[\\/]node_modules[\\/]/,
+        },
+      },
+    },
+    moduleIds: 'named',
+  },
   output: {
     path: path.resolve(process.cwd(), 'dist'),
-    filename: '[name].bundle.js',
+    filename: '[hash:4]/[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -102,8 +116,8 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       CONFIG: JSON.stringify(projectConfig),
     }),
   ],
-};
+});
