@@ -10,6 +10,8 @@ const App = (props) => (
     >
       { props.example ? 'true' : 'false' }
     </button>
+    <br />
+    <img src="/images/nsh.png" alt="a pixelized nerd" />
   </>
 );
 
