@@ -1,6 +1,6 @@
 {
   "name": "projectkick",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "projectkick",
   "scripts": {
     "start": "webpack serve --config ./scripts/webpack.dev.js",
