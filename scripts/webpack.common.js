@@ -103,7 +103,7 @@ module.exports = () => ({
   },
   output: {
     path: path.resolve(process.cwd(), 'dist'),
-    filename: '[hash:4]/[name].js',
+    filename: '[fullhash:4]/[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
