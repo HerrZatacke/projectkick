@@ -6,7 +6,7 @@ const common = require('./webpack.common');
 
 module.exports = merge(common(), {
   mode: 'production',
-  devtool: 'nosources-source-map',
+  devtool: false,
   stats: 'errors-warnings',
   performance: {
     maxEntrypointSize: 300000,

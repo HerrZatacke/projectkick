@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { projectConfig } = require('../package.json');
@@ -15,12 +18,6 @@ module.exports = () => ({
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.(js|jsx)$/,
-        loader: 'eslint-loader',
-        include: path.join(process.cwd(), 'src'),
-      },
       {
         test: /\.(js|jsx)$/,
         use: {
@@ -50,7 +47,7 @@ module.exports = () => ({
               postcssOptions: {
                 plugins: [
                   [
-                    'postcss-preset-env',
+                    'autoprefixer',
                     {},
                   ],
                   [
@@ -88,6 +85,10 @@ module.exports = () => ({
           },
         ],
       },
+      {
+        test: /\.(txt|md)$/i,
+        use: 'raw-loader',
+      },
     ],
   },
   optimization: {
@@ -99,13 +100,29 @@ module.exports = () => ({
         },
       },
     },
-    moduleIds: 'named',
+    minimizer: [
+      new TerserPlugin({
+        extractComments: {
+          condition: /^\**!|@preserve|@license|@cc_on/i,
+          filename: (fileData) => (
+            // The "fileData" argument contains object with "filename", "basename", "query" and "hash"
+            `${fileData.filename}.l.txt${fileData.query}`
+          ),
+          banner: (licenseFile) => (
+            `License information can be found in ${licenseFile}`
+          ),
+        },
+      }),
+    ],
   },
   output: {
     path: path.resolve(process.cwd(), 'dist'),
     filename: '[fullhash:4]/[name].js',
   },
   plugins: [
+    new ESLintPlugin({
+      extensions: ['js', 'jsx'],
+    }),
     new HtmlWebpackPlugin({
       title: 'projectkick',
       template: './src/assets/index.html',
@@ -116,6 +133,7 @@ module.exports = () => ({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new NodePolyfillPlugin(),
     new DefinePlugin({
       CONFIG: JSON.stringify(projectConfig),
     }),
