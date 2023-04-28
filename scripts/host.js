@@ -1,7 +1,7 @@
-const path = require('path');
-const express = require('express');
-const chalk = require('chalk');
-const setupServer = require('./setupServer');
+import chalk from 'chalk';
+import path from 'path';
+import express from 'express';
+import setupServer from './setupServer.js';
 
 const port = 3000;
 const app = express();

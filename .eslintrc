@@ -16,6 +16,10 @@
     "import/no-extraneous-dependencies": [
       "off"
     ],
+    "import/extensions": [
+      "error",
+      "ignorePackages"
+    ],
     "arrow-body-style": [
       "error",
       "as-needed"
