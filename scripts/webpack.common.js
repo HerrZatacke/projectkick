@@ -1,13 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const { DefinePlugin } = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { projectConfig } = require('../package.json');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-module.exports = () => ({
+const config = () => ({
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
@@ -133,9 +130,7 @@ module.exports = () => ({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new NodePolyfillPlugin(),
-    new DefinePlugin({
-      CONFIG: JSON.stringify(projectConfig),
-    }),
   ],
 });
+
+export default config;

@@ -1,10 +1,10 @@
-const path = require('path');
-const { merge } = require('webpack-merge');
-const CopyPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const common = require('./webpack.common');
+import path from 'path';
+import { merge } from 'webpack-merge';
+import CopyPlugin from 'copy-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import common from './webpack.common.js';
 
-module.exports = merge(common(), {
+const config = merge(common(), {
   mode: 'production',
   devtool: false,
   stats: 'errors-warnings',
@@ -28,3 +28,5 @@ module.exports = merge(common(), {
     }),
   ],
 });
+
+export default config;

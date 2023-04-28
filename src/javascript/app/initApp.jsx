@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render } from 'react-dom';
-import App from './components/App';
-import getStore from './store';
+import { createRoot } from 'react-dom/client';
+import App from './components/App/index.jsx';
+import getStore from './store/index.js';
 
 const initApp = () => {
   const appRoot = document.getElementById('app');
@@ -10,7 +10,9 @@ const initApp = () => {
     return;
   }
 
-  render(<Provider store={getStore()}><App /></Provider>, appRoot);
+  const root = createRoot(appRoot);
+
+  root.render(<Provider store={getStore()}><App /></Provider>);
 };
 
 export default initApp;
