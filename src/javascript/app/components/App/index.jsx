@@ -1,26 +1,25 @@
 import React from 'react';
-import useApp from './useApp.js';
+import useExampleStore from '../../stores/exampleStore';
+import useApiExampleStore from '../../stores/apiExampleStore';
 import './index.scss';
 
 function App() {
-  const {
-    example,
-    message,
-    toggleExample,
-  } = useApp();
+  const onoff = useExampleStore((state) => state.onoff);
+  const toggle = useExampleStore((state) => state.toggle);
+  const message = useApiExampleStore((state) => state.message);
 
   return (
-    <>
+    <div className="app">
       <h2>{ message }</h2>
       <button
         type="button"
-        onClick={toggleExample}
+        onClick={toggle}
       >
-        { example ? 'true' : 'false' }
+        { onoff ? 'true' : 'false' }
       </button>
       <br />
       <img src="/images/nsh.png" alt="a pixelized nerd" />
-    </>
+    </div>
   );
 }
 

@@ -13,13 +13,9 @@
   },
   "rules": {
     // Airbnb overwrites
-    "import/no-extraneous-dependencies": [
-      "off"
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages"
-    ],
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
     "arrow-body-style": [
       "error",
       "as-needed"

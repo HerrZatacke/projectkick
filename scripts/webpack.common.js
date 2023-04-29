@@ -10,7 +10,7 @@ const config = () => ({
   },
   entry: {
     main: [
-      path.join(process.cwd(), 'src', 'javascript', 'index.js'),
+      path.join(process.cwd(), 'src', 'javascript', 'index.jsx'),
     ],
   },
   module: {
@@ -122,7 +122,7 @@ const config = () => ({
     }),
     new HtmlWebpackPlugin({
       title: 'projectkick',
-      template: './src/assets/index.html',
+      template: './src/index.html',
       filename: 'index.html',
       chunks: ['main'],
     }),

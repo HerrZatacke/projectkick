@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import path from 'path';
 import { merge } from 'webpack-merge';
 import CopyPlugin from 'copy-webpack-plugin';
@@ -16,8 +17,8 @@ const config = merge(common(), {
     new CopyPlugin({
       patterns: [
         {
-          from: path.join(process.cwd(), 'src', 'assets', 'images'),
-          to: path.join(process.cwd(), 'dist', 'images'),
+          from: path.join(process.cwd(), 'src', 'assets'),
+          to: path.join(process.cwd(), 'dist'),
         },
       ],
     }),

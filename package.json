@@ -6,6 +6,7 @@
     "start": "npm run build && npm run host",
     "host": "node ./scripts/host.js",
     "dev": "webpack serve --config ./scripts/webpack.dev.js",
+    "lint": "eslint -c .eslintrc --ext .js,.jsx .",
     "build": "npm run build:clean && npm run build:webpack",
     "build:clean": "rimraf dist && rimraf build",
     "build:webpack": "webpack --config ./scripts/webpack.prod.js"
@@ -49,8 +50,6 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.5",
-    "redux": "^4.2.1",
     "reset-css": "^5.0.1",
     "rimraf": "^5.0.0",
     "sass": "^1.62.1",
@@ -61,7 +60,8 @@
     "webpack-bundle-analyzer": "^4.8.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "zustand": "^4.3.7"
   },
   "browserslist": [
     ">1%",
