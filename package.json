@@ -6,7 +6,7 @@
     "start": "npm run build && npm run host",
     "host": "node ./scripts/host.js",
     "dev": "webpack serve --config ./scripts/webpack.dev.js",
-    "lint": "eslint -c .eslintrc --ext .js,.jsx .",
+    "lint": "eslint -c .eslintrc --ext .js,.jsx,.ts,.tsx .",
     "build": "npm run build:clean && npm run build:webpack",
     "build:clean": "rimraf dist && rimraf build",
     "build:webpack": "webpack --config ./scripts/webpack.prod.js"
@@ -22,6 +22,11 @@
     "@babel/eslint-parser": "^7.21.3",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.5",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^9.1.2",
@@ -31,6 +36,7 @@
     "css-loader": "^6.7.3",
     "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -47,7 +53,6 @@
     "postcss-loader": "^7.3.0",
     "postcss-preset-env": "^8.3.2",
     "postcss-pxtorem": "^6.0.0",
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reset-css": "^5.0.1",
@@ -56,6 +61,8 @@
     "sass-loader": "^13.2.2",
     "sass-resources-loader": "^2.2.5",
     "style-loader": "^3.3.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4",
     "webpack": "^5.81.0",
     "webpack-bundle-analyzer": "^4.8.0",
     "webpack-cli": "^5.0.2",
@@ -63,11 +70,12 @@
     "webpack-merge": "^5.8.0",
     "zustand": "^4.3.7"
   },
+  "dependencies": {
+  },
   "browserslist": [
     ">1%",
     "last 4 versions",
     "Firefox ESR",
     "not ie < 11"
-  ],
-  "dependencies": {}
+  ]
 }

@@ -1,6 +1,10 @@
 import { create } from 'zustand';
 
-const useApiExampleStore = create((set) => {
+export interface MesssageState {
+  message: string
+}
+
+const useApiExampleStore = create<MesssageState>((set) => {
 
   // make an initial API call
   (async () => {

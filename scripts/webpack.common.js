@@ -6,15 +6,20 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const config = () => ({
   resolve: {
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
   },
   entry: {
     main: [
-      path.join(process.cwd(), 'src', 'javascript', 'index.jsx'),
+      path.join(process.cwd(), 'src', 'javascript', 'index.tsx'),
     ],
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
       {
         test: /\.(js|jsx)$/,
         use: {

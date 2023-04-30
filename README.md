@@ -13,7 +13,7 @@ That's why it *should not* create output of it's own ([see docs](https://www.npm
 All properties of the field `projectConfig` in the `package.json` will be provided to a global js variable `CONFIG`
 
 ## Getting started
-have a look at [`/src/javascript/index.js`](/src/javascript/index.js), [`/src/scss/index.scss`](/src/scss/index.scss) and [`/src/assets/index.html`](/src/assets/index.html)
+have a look at [`/src/javascript/index.tsx`](/src/javascript/index.tsx), [`/src/scss/index.scss`](/src/scss/index.scss) and [`/src/index.html`](/src/index.html)
 
 Also you might want to replace the name "projectkick" in all files
 * `readme.md` (this file - go and write your own readme)
