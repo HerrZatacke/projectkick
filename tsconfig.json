@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["es2019", "dom"],
     "module": "commonjs",
     "jsx": "react",
     "outDir": "./dist",
@@ -11,3 +12,4 @@
     "./src/**/*"
   ]
 }
+
